@@ -28,6 +28,7 @@ Activar GitHub pages de este directorio en https://github.com/NOMBRE-USUARIO/NOM
                         git@github.com:ALFICA-Sistemas/LogConex.git
 
 # NO SE POR QUE AHORA NECESITA ESTO PARA AUTENTICAR:
+#  ERA PORQUE ESTABA MEZCLANDO .GIT CON LA SINCRONIZACION DE SYNCTHING!
   cd ~/.ssh
   ssh-keygen
   cat ~/.ssh/id_rsa.pub
