@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+   <head>
+      <title>Registro de conexion</title>
+      <!-- https://www.w3schools.com/html/html_layout.asp -->
+      <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="css/comun.css">
+      <script src="js/comun.js"></script>
+   </head>
+
+   <body onload="setInterval(RecargaImg, 30000)">   
+      <header>Registro de conectividad este mes (usando facebook.com)</header>
+      <img id="LogGraf" src="202309_facebook.png" alt="Log del mes">
+      <footer id="subtit">-</footer>
+      
+      <script>
+         function RecargaImg(){
+            CargaImg(document.getElementById('LogGraf'), "202309_facebook.png");
+         }
+      </script>
+   </body>
+</html>
+

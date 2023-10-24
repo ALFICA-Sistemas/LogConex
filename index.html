@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+   <head>
+      <title>Registro de conexion</title>
+      <!-- https://www.w3schools.com/html/html_layout.asp -->
+      <link rel="shortcut icon" href="css/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="css/comun.css">
+      <script src="scr/comun.js"></script>
+   </head>
+
+   <body onload="Init()">
+      <header>Registro de conectividad a <div id="dest">-</div></header>        <!-- Titulo -->
+      <img id="LogGraf" alt="Log del mes">  <!-- Gráfico -->
+      <footer id="subtit">-</footer>                                            <!-- Pie de gráfico -->
+      <div id="fec">-</div>
+      
+      <script>
+         function Init(){
+            console.log("Init "+new Date().getTime());
+            document.getElementById("dest").innerHTML = LeerTexto("config/config.txt");
+            CargaImg(document.getElementById('LogGraf'), "logs/202310_api.ipify.org.png");
+            setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
+            }
+         function RecargaImg(){
+            CargaImg(document.getElementById('LogGraf'), "logs/202310_api.ipify.org.png");
+            }
+      </script>
+   </body>
+
+</html>

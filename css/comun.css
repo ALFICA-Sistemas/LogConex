@@ -1,0 +1,24 @@
+body {
+/*   background: url(../_recursos/LogoFondo_100x100.PNG);   */
+   background-color:#D0D0C0;
+   font-family: Monoespaciado;
+/*   src: url(VictorMono-Regular.ttf); */
+}
+
+header {
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+}
+
+img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+footer {
+   font-size: 12px;
+   padding: 0px;
+   text-align: center;
+}
