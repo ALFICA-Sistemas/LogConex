@@ -16,5 +16,5 @@ cd $(dirname "$0")    # Cambiar al directorio de este script (está eb /bash deb
 cd ..                 #  y subir un nivel a la raiz del repo
 git add .             # Registrar todos los archivos
 git commit -m "Update del $(TZ=":America/Caracas" date +'%Y-%m-%d_%H:%M')"
-echo "$Yo"
-git push -u origin main    >> $Deb
+echo "$Yo" >> $Deb
+git push -u origin main >> $Deb
