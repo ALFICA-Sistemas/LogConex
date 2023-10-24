@@ -104,7 +104,7 @@ rm $Dat
 if [ $Md -eq 9 ]; then                # Si termino el minuto 9, actualizar el archivo online
   echo "$Yo Terminó el bloque de 10min: publicarlo" >> $Deb
   echo "$Yo $(dirname $0)/Publicar.sh $Img" >> $Deb 
-              $(dirname $0)/Publicar.sh $Img 
+            $(dirname $0)/Publicar.sh $Img 
 fi
 
 echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
