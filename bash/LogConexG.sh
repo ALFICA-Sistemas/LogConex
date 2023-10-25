@@ -92,10 +92,11 @@ H=$(date +'%H')                       # Tomar la hora,
 H=$(expr $H + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
 M=$(date +'%M')                       # Tomar los minutos,
 M=$(expr $M + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
+  Um=
 Col=$(( $H*6 + $M/10 + 1 ))           # Calcular el # de columna de ese bloque de 10 minutos
 echo "$Yo Fila $Fil, hora $H $M = columna $Col" >> $Deb 
 Img=$Pre$(date +'%Y%m')$Pos".png"     # Componer el nombre del archivo con el registro gráfico 
-echo "$Yo Actualizar la imagen al ultimo minuto de la decena" >> $Deb
+echo "$Yo Actualizar la imagen con el minuto actual" >> $Deb
 echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos" >> $Deb 
           $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos
 echo "$Yo Eliminar el log temporal $Dat"  >> $Deb
