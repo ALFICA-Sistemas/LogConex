@@ -40,7 +40,7 @@ Yo=$(basename ${0})                                         # Tomar el nombre de
 Yo="${Yo%%.*}"                                              # Eliminar la extension del script
 Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M') $Yo)"   # Agregar el time tag
 Deb="$DirTmp/$Pos"-Debug.log                                # Log de debug de la última ejecución
-# Dat="$DirTmp/$Pos"-10pings.dat                              # Log de 10 intentos de conexion
+Dat="$DirTmp/$Pos"-10pings.dat                              # Log de 10 intentos de conexion
 # Scr="$DirTmp/$Pos"_$Yo-Magick.scr                           # Script para ImageMagick
 
 M=$(TZ=":America/Caracas" date +'%M')                       # Determinar el minuto actual
@@ -49,7 +49,7 @@ if [ $Md -eq 9 ]; then rm $Deb; fi                          # Si es el minuto qu
 
 echo "$0 $1 $2 $3" >> $Deb                                  # Registrar el comando con el que se ejecutó
 echo "$Yo $Dest $Pre $Pos" >> $Deb                          # Registrar el comando interpretado
-echo "$Yo DEB: $Deb" >> $Deb                                # Registrar los temporales
+echo "$Yo DEB: $Deb DAT:$Dat SCR:$Scr" >> $Deb              # Registrar los temporales
 
 if  [[ ! $Dest =~ ^http.*$ ]];
 then
@@ -72,18 +72,18 @@ fi
 
 echo " ->" $C >> $Deb
 
-# # VERIFICACION / CREACION DEL ARCHIVO DE REGISTRO TEMPORAL:
-# if [ ! -f $Dat ]; then                                   # Si el archivo NO existe,
-#   echo "$Yo Creando" $Dat "con diez '$CarNR'" >> $Deb
-#   for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP
-# fi
+# VERIFICACION / CREACION DEL ARCHIVO DE REGISTRO TEMPORAL:
+if [ ! -f $Dat ]; then                                   # Si el archivo NO existe,
+  echo "$Yo Creando" $Dat "con diez '$CarNR'" >> $Deb
+  for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP
+fi
 
 # Componer y aplicar el script para que SED cambia el caracter en la posicion Md:
 # Uso el script SED en un archivo para evitar conflictos entre la expansion de variables y el regexp
 # Uso "printf" y no "echo" porque parece que el segundo no entiende el \1 dentro de un script
-# echo -n "$Yo Usando sed s/./$C/$(( Md+1 )) para modificar" $Dat "de" $(cat $Dat) "a " >> $Deb
-# sed -i "s/./$C/$(( Md+1 ))" $Dat
-# echo "$(cat $Dat)" >> $Deb
+echo -n "$Yo Usando sed s/./$C/$(( Md+1 )) para modificar" $Dat "de" $(cat $Dat) "a " >> $Deb
+sed -i "s/./$C/$(( Md+1 ))" $Dat
+echo "$(cat $Dat)" >> $Deb
 
 # Determinar posición y color del indicador de conexión de este minuto
 Fil=$(date +'%d')                     # La fila es directamente la fecha
