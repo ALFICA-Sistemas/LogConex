@@ -38,7 +38,7 @@ mkdir -p $DirTmp                                            # Creacion del direc
 # Definir los logs temporales:
 Yo=$(basename ${0})                                         # Tomar el nombre de este script
 Yo="${Yo%%.*}"                                              # Eliminar la extension del script
-Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M') $Yo)"   # Agregar el time tag
+Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M%S') $Yo)" # Agregar el time tag
 Deb="$DirTmp/$Pos"-Debug.log                                # Log de debug de la última ejecución
 # Dat="$DirTmp/$Pos"-10pings.dat                              # Log de 10 intentos de conexion
 # Scr="$DirTmp/$Pos"_$Yo-Magick.scr                           # Script para ImageMagick
@@ -65,41 +65,25 @@ else
 fi
 
 if [ $Resp -eq "0" ]; then                                  # Si el destinatario respondio.
-  C=$CarOk                                                  #  usar el caracter definido en CarOk
+  Resul=$CarOk                                              #  usar el caracter definido en CarOk
   else                                                      # En caso contrario,
-  C=$CarNo                                                  #  usar el caracter definido en CarNo
+  Resul=$CarNo                                              #  usar el caracter definido en CarNo
 fi
-
-echo " ->" $C >> $Deb
-
-# # VERIFICACION / CREACION DEL ARCHIVO DE REGISTRO TEMPORAL:
-# if [ ! -f $Dat ]; then                                   # Si el archivo NO existe,
-#   echo "$Yo Creando" $Dat "con diez '$CarNR'" >> $Deb
-#   for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP
-# fi
-
-# Componer y aplicar el script para que SED cambia el caracter en la posicion Md:
-# Uso el script SED en un archivo para evitar conflictos entre la expansion de variables y el regexp
-# Uso "printf" y no "echo" porque parece que el segundo no entiende el \1 dentro de un script
-# echo -n "$Yo Usando sed s/./$C/$(( Md+1 )) para modificar" $Dat "de" $(cat $Dat) "a " >> $Deb
-# sed -i "s/./$C/$(( Md+1 ))" $Dat
-# echo "$(cat $Dat)" >> $Deb
+echo " ->" $Resul >> $Deb
 
 # Determinar posición y color del indicador de conexión de este minuto
-Fil=$(date +'%d')                     # La fila es directamente la fecha
+Fil=$(date +'%d')                     # La fila es directamente la fecha actual
 # La columna es el bloque de 10 minutos donde está el minuto actual
 H=$(date +'%H')                       # Tomar la hora, 
 H=$(expr $H + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
 M=$(date +'%M')                       # Tomar los minutos,
 M=$(expr $M + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
-  Um="${M: -1}"                       #  y separar solo el ultimo digito
 Col=$(( $H*6 + $M/10 + 1 ))           # Calcular el # de columna de ese bloque de 10 minutos
-echo "$Yo Fila $Fil, hora $H $M = columna $Col" >> $Deb 
+echo "$Yo Fila $Fil, hora $H $M = columna $Col posicion $Md con un $Resul" >> $Deb 
 Img=$Pre$(date +'%Y%m')$Pos".png"     # Componer el nombre del archivo con el registro gráfico 
-echo "$Yo Actualizar la imagen con el minuto actual" >> $Deb
-echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos $Um" >> $Deb 
-#          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos $Um
-echo "$Yo Eliminar el log temporal $Dat"  >> $Deb
+echo "$Yo Actualizar con el resultado del minuto actual la imagen $Img" >> $Deb
+echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul XXX" >> $Deb 
+          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul
 
 if [ $Md -eq 9 ]; then                # Si termino el minuto 9, actualizar el archivo online
   echo "$Yo Terminó el bloque de 10min: publicarlo" >> $Deb
