@@ -63,10 +63,10 @@ echo "($Yo) Bloque desde X=$X1 hasta X=$X2 con las muestras: $Dat" >> $Deb
 # Recorrer los 10 niveles del bloque
 for M in {0..9}; do
   echo -n "($Yo)   Muestra $M: ${Dat:$M:1} " >> $Deb
-  # Calcular la coordenada Y de la linea M en esta fila:
-  Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$M -2 ))         # Decidir el color de cada linea según el caracter num M del log:
+  
+  Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$M -2 ))         # Calcular la coordenada Y de la linea M en esta fila:
    echo -n "en la coordenada Y=$Y" >> $Deb
-   case ${Dat:$M:1} in
+   case ${Dat:$M:1} in                                                  # Decidir el color de cada linea según el caracter num M del log:
     $CarOk)
       Color=$ColorOk
       echo " de color" $Color >> $Deb

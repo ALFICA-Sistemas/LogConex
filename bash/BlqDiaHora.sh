@@ -67,20 +67,19 @@ echo "$Mon $Img " > $Scr
 # Calcular los limites horizontales del bloque:
 X1=$(( $mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 ))
 X2=$(( $X1 + $ColAncho - $ColSep ))
-# Calcular la coordenada Y de la linea M en esta fila:
-Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$M -2 ))         # Decidir el color de cada linea según el caracter num M del log:
+Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -2 ))         # Calcular la coordenada Y de la linea M en esta fila:
 echo -n "($Yo) Bloque desde X=$X1 hasta X=$X2 a la altura $Y" >> $Deb
 
-case $Res in 
+case $Res in                                                            # Decidir el color de cada linea según el caracter num M del log:
   $CarOk)
     Color=$ColorOk
     echo " de color" $Color >> $Deb
-    echo " -stroke xc:$Color -draw 'line $X1,$Y $X2,$Y'" >> $Scr      # Agregar el trazado de la línea al script
+    echo " -stroke xc:$Color -draw 'line $X1,$Y $X2,$Y'" >> $Scr        # Agregar el trazado de la línea al script
   ;;&
   $CarNo)
     Color=$ColorNo
     echo " de color" $Color >> $Deb
-    echo " -stroke xc:$Color -draw 'line $X1,$Y $X2,$Y'" >> $Scr      # Agregar el trazado de la línea al script
+    echo " -stroke xc:$Color -draw 'line $X1,$Y $X2,$Y'" >> $Scr        # Agregar el trazado de la línea al script
   ;;&
   $CarNR)
     echo "" >> $Deb
