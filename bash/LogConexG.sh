@@ -75,7 +75,7 @@ echo " ->" $C >> $Deb
 # VERIFICACION / CREACION DEL ARCHIVO DE REGISTRO TEMPORAL:
 if [ ! -f $Dat ]; then                                   # Si el archivo NO existe,
   echo "$Yo Creando" $Dat "con diez '$CarNR'" >> $Deb
-  for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP  
+  for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP
 fi
 
 # Componer y aplicar el script para que SED cambia el caracter en la posicion Md:
@@ -97,7 +97,7 @@ echo "$Yo Fila $Fil, hora $H $M = columna $Col" >> $Deb
 Img=$Pre$(date +'%Y%m')$Pos".png"     # Componer el nombre del archivo con el registro gráfico 
 echo "$Yo Actualizar la imagen al ultimo minuto de la decena" >> $Deb
 echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos" >> $Deb 
-            $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos
+          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Img $(cat $Dat) $Pos
 echo "$Yo Eliminar el log temporal $Dat"  >> $Deb
 rm $Dat
 
