@@ -30,8 +30,8 @@ Dest=$1                                                     # Destino a conectar
   if [ -z "$Dest" ]; then Dest="127.0.0.1"; fi              #  Si no se recibió valor o es vacío, asignar el default
 Pre=$2                                                      # Prefijo del archivo de registro
   if [ -z "$Pre" ]; then Pre=$(dirname "$0")"/"; fi         #  Si no se recibió valor o es vacío, asignar el default
-Pos=$3                                                      # Sufijo  del archivo de registro
-  if [ -z "$Pos" ]; then Pos="_test"; fi                    #  Si no se recibió valor o es vacío, asignar el default
+Suf=$3                                                      # Sufijo  del archivo de registro
+  if [ -z "$Suf" ]; then Pos="_test"; fi                    #  Si no se recibió valor o es vacío, asignar el default
 
 mkdir -p $DirTmp                                            # Creacion del directorio temporal (-p para que cree el path completo)
 
@@ -39,16 +39,16 @@ mkdir -p $DirTmp                                            # Creacion del direc
 Yo=$(basename ${0})                                         # Tomar el nombre de este script
 Yo="${Yo%%.*}"                                              # Eliminar la extension del script
 Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M%S') $Yo)" # Agregar el time tag
-Deb="$DirTmp/$Pos"-Debug.log                                # Log de debug de la última ejecución
-# Dat="$DirTmp/$Pos"-10pings.dat                              # Log de 10 intentos de conexion
-# Scr="$DirTmp/$Pos"_$Yo-Magick.scr                           # Script para ImageMagick
+Deb="$DirTmp/$Suf"-Debug.log                                # Log de debug de la última ejecución
+# Dat="$DirTmp/$Suf"-10pings.dat                              # Log de 10 intentos de conexion
+# Scr="$DirTmp/$Suf"_$Yo-Magick.scr                           # Script para ImageMagick
 
 M=$(TZ=":America/Caracas" date +'%M')                       # Determinar el minuto actual
 Md=$(( ${M#0}%10 ))                                         # Calcular el minuto desde la decena
 if [ $Md -eq 9 ]; then rm $Deb; fi                          # Si es el minuto que termina la decena, eliminar el debug viejo
 
 echo "$0 $1 $2 $3" >> $Deb                                  # Registrar el comando con el que se ejecutó
-echo "$Yo $Dest $Pre $Pos" >> $Deb                          # Registrar el comando interpretado
+echo "$Yo $Dest $Pre $Suf" >> $Deb                          # Registrar el comando interpretado
 echo "$Yo DEB: $Deb" >> $Deb                                # Registrar los temporales
 
 if  [[ ! $Dest =~ ^http.*$ ]];
@@ -80,10 +80,10 @@ M=$(date +'%M')                       # Tomar los minutos,
 M=$(expr $M + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
 Col=$(( $H*6 + $M/10 + 1 ))           # Calcular el # de columna de ese bloque de 10 minutos
 echo "$Yo Fila $Fil, hora $H $M = columna $Col posicion $Md con un $Resul" >> $Deb 
-Img=$Pre$(date +'%Y%m')$Pos".png"     # Componer el nombre del archivo con el registro gráfico 
+Img=$Pre$(date +'%Y%m')$Suf".png"     # Componer el nombre del archivo con el registro gráfico 
 echo "$Yo Actualizar con el resultado del minuto actual la imagen $Img" >> $Deb
-echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Pos" >> $Deb 
-          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Pos
+echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Suf" >> $Deb 
+          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Suf
 
 if [ $Md -eq 9 ]; then                # Si termino el minuto 9, actualizar el archivo online
   echo "$Yo Terminó el bloque de 10min: publicarlo" >> $Deb
