@@ -40,7 +40,7 @@ Yo=$(basename ${0})                                         # Tomar el nombre de
 Yo="${Yo%%.*}"                                              # Eliminar la extension del script
 Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M') $Yo)"   # Agregar el time tag
 Deb="$DirTmp/$Pos"-Debug.log                                # Log de debug de la última ejecución
-Dat="$DirTmp/$Pos"_$Yo-10pings.dat                          # Log de 10 intentos de conexion
+Dat="$DirTmp/$Pos"-10pings.dat                              # Log de 10 intentos de conexion
 # Scr="$DirTmp/$Pos"_$Yo-Magick.scr                           # Script para ImageMagick
 
 M=$(TZ=":America/Caracas" date +'%M')                       # Determinar el minuto actual
@@ -48,8 +48,8 @@ Md=$(( ${M#0}%10 ))                                         # Calcular el minuto
 if [ $Md -eq 9 ]; then rm $Deb; fi                          # Si es el minuto que termina la decena, eliminar el debug viejo
 
 echo "$0 $1 $2 $3" >> $Deb                                  # Registrar el comando con el que se ejecutó
-echo "$Yo $Dest $Pre $Pos" >> $Deb                        # Registrar el comando interpretado
-echo "$Yo DEB: $Deb DAT:$Dat SCR:$Scr" >> $Deb            # Registrar los temporales
+echo "$Yo $Dest $Pre $Pos" >> $Deb                          # Registrar el comando interpretado
+echo "$Yo DEB: $Deb DAT:$Dat SCR:$Scr" >> $Deb              # Registrar los temporales
 
 if  [[ ! $Dest =~ ^http.*$ ]];
 then
@@ -75,7 +75,7 @@ echo " ->" $C >> $Deb
 # VERIFICACION / CREACION DEL ARCHIVO DE REGISTRO TEMPORAL:
 if [ ! -f $Dat ]; then                                   # Si el archivo NO existe,
   echo "$Yo Creando" $Dat "con diez '$CarNR'" >> $Deb
-  for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP
+  for i in {1..10}; do echo -n "$CarNR" >> $Dat; done    #  crearlo, con los "placeholders" NOP  
 fi
 
 # Componer y aplicar el script para que SED cambia el caracter en la posicion Md:
