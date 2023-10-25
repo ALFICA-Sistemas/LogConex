@@ -57,8 +57,8 @@ echo "($Yo) DEB: $Deb SCR:$Scr" >> $Deb                                 # Regist
 # Asegurar la existencia de la imagen sobre la cual se dibujara el bloque
 if [ ! -f $Img ]; then                                                  # Si el archivo NO existe,
   echo "($Yo) No existe $Img, crearlo" >> $Deb
-  echo "($Yo) $(dirname ${0})"/"MesVacio.sh $Img"  >> $Deb
-              $(dirname ${0})"/"MesVacio.sh $Img                        #  ejecotar el generador de imagen del mes vacio
+  echo "($Yo) $(dirname ${0})"/"MesVacio.sh $Img $Suf"  >> $Deb
+              $(dirname ${0})"/"MesVacio.sh $Img $Suf                   #  ejecotar el generador de imagen del mes vacio
 fi
 
 echo "($Yo) Agregar el minuto $Min del bloque en la columna $Col y fila $Fil" >> $Deb
