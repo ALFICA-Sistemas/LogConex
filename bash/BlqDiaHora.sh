@@ -4,7 +4,7 @@
 source $(dirname "$0")/ParamsLogConex.dat
 
 # VERIFICACION DE ARGUMENTOS, explicar uso si no se pasaron:
-echo $# >> "$DirTmp/$Pos"-Debug.log
+echo $# >> "$DirTmp/$Suf"-Debug.log
 if [ $# -eq 0 ]; then         # Si no se pasan argumentos, mostrar como se usa
   echo "USO: BlqDiaHora.sh Fila Columna Minuto /path/a/imagengrid Resultado"
   echo " el primer  argumento es la fecha del mes, que determina el numero de la fila"
@@ -40,14 +40,15 @@ Res=$5                                                                  # Pasar 
     if [ -z $Res ]; then                                                # Si el Reso del bloque tiene longitud cero,
     Res="$CarNo"                                                        #  asimir falla
   fi
-Pos=$5
+Suf=$6
+
 
 # Definir los logs temporales:
 Yo=$(basename ${0})                                                     # Tomar el nombre de este script
 Yo="${Yo%%.*}"                                                          # Eliminar la extension del script
+Deb="$DirTmp/$Suf"-Debug.log                                            # Log de debug de la última ejecución
+Scr="$DirTmp/$Suf"_$Yo-Magick.scr                                       # Script para ImageMagick
 Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M%S') $Yo)"             # Agregar el time tag
-Deb="$DirTmp/$Pos"-Debug.log                                            # Log de debug de la última ejecución
-Scr="$DirTmp/$Pos"_$Yo-Magick.scr                                       # Script para ImageMagick
 
 echo "($Yo) $0 $1 $2 $3 $4 $5" >> $Deb                                  # Registrar el comando con el que se ejecutó
 echo "($Yo) $Fil $Col $Min $Img $Res" >> $Deb                           # Registrar el comando interpretado

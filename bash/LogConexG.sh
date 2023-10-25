@@ -82,8 +82,8 @@ Col=$(( $H*6 + $M/10 + 1 ))           # Calcular el # de columna de ese bloque d
 echo "$Yo Fila $Fil, hora $H $M = columna $Col posicion $Md con un $Resul" >> $Deb 
 Img=$Pre$(date +'%Y%m')$Pos".png"     # Componer el nombre del archivo con el registro gráfico 
 echo "$Yo Actualizar con el resultado del minuto actual la imagen $Img" >> $Deb
-echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul XXX" >> $Deb 
-          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul
+echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Pos" >> $Deb 
+          $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Pos
 
 if [ $Md -eq 9 ]; then                # Si termino el minuto 9, actualizar el archivo online
   echo "$Yo Terminó el bloque de 10min: publicarlo" >> $Deb
