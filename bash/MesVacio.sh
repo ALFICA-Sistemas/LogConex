@@ -9,23 +9,23 @@ Img=$1                                                            # Pasar el arg
     Img=$(dirname ${0})                                           # Iniciarla con el path de este script,
     Img=$Img"/"$(TZ=":America/Caracas" date +'%Y%m')"_test.png"   #  y agregar por defecto AñoMes.png
   fi
-Suf=$2                                                      # Sufijo  del archivo de registro
-  if [ -z "$Suf" ]; then Suf="_test"; fi                    # Si no se recibió valor o es vacío, asignar el default
+Suf=$2                                                            # Sufijo  del archivo de registro
+  if [ -z "$Suf" ]; then Suf="_test"; fi                          # Si no se recibió valor o es vacío, asignar el default
 
 mkdir -p $(dirname $Img)                                          # Asegurarse que el directorio esté creado
 rm $Img                # Eliminar la imagen existente para asegurarse que sea nueva y vacía
 
 # Definir los logs temporales:
-Yo=$(basename ${0})                                         # Tomar el nombre de este script
-Yo="${Yo%%.*}"                                              # Eliminar la extension del script
-Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M') $Yo)"   # Agregar el time tag
-Deb="$DirTmp/$Suf"-Debug.log                                # Log de debug de la última ejecución
-Dat="$DirTmp/$Suf"_$Yo-10pings.dat                          # Log de 10 intentos de conexion
-Scr="$DirTmp/$Suf"_$Yo-Magick.scr                           # Script para ImageMagick
+Yo=$(basename ${0})                                               # Tomar el nombre de este script
+Yo="${Yo%%.*}"                                                    # Eliminar la extension del script
+Yo="($(TZ=":America/Caracas" date +'%Y-%m-%d_%H%M') $Yo)"         # Agregar el time tag
+Deb="$DirTmp/$Suf"-Debug.log                                      # Log de debug de la última ejecución
+#Dat="$DirTmp/$Suf"_$Yo-10pings.dat                                # Log de 10 intentos de conexion
+Scr="$DirTmp/$Suf"-Magick.scr                                     # Script para ImageMagick
 
-echo "$Yo $0 $1 $2" >> $Deb                               # Registrar el comando con el que se ejecutó
-echo "$Yo $Img $Suf" >> $Deb                              # Registrar el comando interpretado
-echo "$Yo DEB: $Deb DAT:$Dat SCR:$Scr" >> $Deb            # Registrar los temporales
+echo "$Yo $0 $1 $2" >> $Deb                                       # Registrar el comando con el que se ejecutó
+echo "$Yo $Img $Suf" >> $Deb                                      # Registrar el comando interpretado
+echo "$Yo DEB: $Deb SCR:$Scr" >> $Deb                             # Registrar los temporales
 
 ImgAncho=$(( $mIzq + $bIzq + $Cols * $ColAncho + (( $Cols - 1 )) * $ColSep + $bDer ))
 ImgAlto=$(( $mSup + $bSup + $Fils * $FilAlto + (( $Fils - 1 )) * $FilSep + $bInf))
