@@ -66,11 +66,11 @@ echo "($Yo)   con el resultado $Res en la imagen $Img" >> $Deb
 echo "$Mon $Img " > $Scr 
 # Calcular los limites horizontales del bloque:
         X1=$(( $mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 ))
-echo "($Yo) X1=$mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 =$X1"
+echo "($Yo) X1=$mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 =$X1" >> $Deb
         X2=$(( $X1 + $ColAncho - $ColSep )) 
-echo "($Yo) X2=$X1 + $ColAncho - $ColSep =$X2))"
+echo "($Yo) X2=$X1 + $ColAncho - $ColSep =$X2" >> $Deb
         Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 ))         # Calcular la coordenada Y de la linea M en esta fila:
-echo "($Yo) Y=$mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 =$Y"
+echo "($Yo) Y=$mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 =$Y" >> $Deb
 echo -n "($Yo) Bloque desde X=$X1 hasta X=$X2 a la altura $Y" >> $Deb
 
 case $Res in                                                            # Decidir el color de cada linea según el caracter num M del log:
