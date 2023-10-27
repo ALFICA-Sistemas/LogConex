@@ -95,4 +95,4 @@ echo "$Mon -write $Img" >> $Scr                                         # Termin
 echo "($Yo) /usr/local/bin/magick -script $Scr" >> $Deb
       /usr/local/bin/magick -script $Scr                                # Ejecutar ImageMagic con el script generado 
 
-echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
+# echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
