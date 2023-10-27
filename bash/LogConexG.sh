@@ -87,8 +87,8 @@ echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Suf" >> $Deb
 
 if [ $Md -eq 9 ]; then                # Si termino el minuto 9, actualizar el archivo online
   echo "$Yo Terminó el bloque de 10min: publicarlo" >> $Deb
-  echo "$Yo $(dirname $0)/Publicar.sh $Img" >> $Deb 
-            $(dirname $0)/Publicar.sh $Img 
+  echo "$Yo $(dirname $0)/Publicar.sh $Img $Deb" >> $Deb 
+            $(dirname $0)/Publicar.sh $Img $Deb
 fi
 
 echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
