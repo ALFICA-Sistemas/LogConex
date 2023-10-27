@@ -29,7 +29,7 @@ Col=$2                                                                  # Pasar 
   Col=$(echo $Col | sed 's/^0*//')                                      # ELiminar el cero precedente para que no lo confunda confunda con octal y explote en "08"
 Min=$3                                                                  # Pasar el argumento a una variable leible
   if [ -z "$Min" ]; then Min=1; fi                                      # Si no se recibió valor o es vacío, asignar el default
-  if [ $Min -lt 1 ]; then Min=1; fi                                     # Si el valor es menos que el minimo, asignar el minimo
+  if [ $Min -lt 0 ]; then Min=1; fi                                     # Si el valor es menos que el minimo, asignar el minimo
   if [ $Min -gt 9 ]; then Min=9; fi                                     # Si el valor es mayor que el maximo, asignar el maximo
 Img=$4                                                                  # Pasar el argumento a una variable leible
   if [ -z $Img ]; then                                                  # Si el path/imagen tiene longitud cero,
@@ -69,8 +69,8 @@ echo "$Mon $Img " > $Scr
 echo "($Yo) X1=$mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 =$X1" >> $Deb
         X2=$(( $X1 + $ColAncho - $ColSep )) 
 echo "($Yo) X2=$X1 + $ColAncho - $ColSep =$X2" >> $Deb
-        Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 ))         # Calcular la coordenada Y de la linea M en esta fila:
-echo "($Yo) Y=$mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 =$Y" >> $Deb
+        Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -2 ))         # Calcular la coordenada Y de la linea M en esta fila:
+echo "($Yo) Y=$mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -2 =$Y" >> $Deb
 echo -n "($Yo) Bloque desde X=$X1 hasta X=$X2 a la altura $Y" >> $Deb
 
 case $Res in                                                            # Decidir el color de cada linea según el caracter num M del log:
