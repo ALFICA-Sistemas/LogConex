@@ -68,7 +68,7 @@ echo "$Mon $Img " > $Scr
         X1=$(( $mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 ))
 echo "($Yo) X1=$mIzq + $bIzq + ($Col-1) * ($ColAncho + $ColSep) +1 =$X1"
         X2=$(( $X1 + $ColAncho - $ColSep )) 
-echo "($Yo) X2=$X1 + $ColAncho - $ColSep =$X2))
+echo "($Yo) X2=$X1 + $ColAncho - $ColSep =$X2))"
         Y=$(( $mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 ))         # Calcular la coordenada Y de la linea M en esta fila:
 echo "($Yo) Y=$mSup + $bSup + $Fil * ( $FilAlto + $FilSep ) -$Min -1 =$Y"
 echo -n "($Yo) Bloque desde X=$X1 hasta X=$X2 a la altura $Y" >> $Deb
