@@ -45,7 +45,7 @@ Deb="$DirTmp/$Suf"-Debug.log                                # Log de debug de la
 
 M=$(TZ=":America/Caracas" date +'%M')                       # Determinar el minuto actual
 Md=$(( ${M#0}%10 ))                                         # Calcular el minuto desde la decena
-if [ $Md -eq 9 ]; then rm $Deb; fi                          # Si es el minuto que termina la decena, eliminar el debug viejo
+if [ $Md -eq 0 ]; then rm $Deb; fi                          # Si es el minuto que empieza la decena, eliminar el debug viejo
 
 echo "$0 $1 $2 $3" >> $Deb                                  # Registrar el comando con el que se ejecutó
 echo "$Yo $Dest $Pre $Suf" >> $Deb                          # Registrar el comando interpretado
@@ -79,7 +79,7 @@ H=$(expr $H + 0)                      #  y eliminar el posible cero precedente (
 M=$(date +'%M')                       # Tomar los minutos,
 M=$(expr $M + 0)                      #  y eliminar el posible cero precedente (para que no lo confunda con octal)
 Col=$(( $H*6 + $M/10 + 1 ))           # Calcular el # de columna de ese bloque de 10 minutos
-echo "$Yo Fila $Fil, hora $H $M = columna $Col posicion $Md con un $Resul" >> $Deb 
+echo "$Yo Fila $Fil, hora $H $M = columna $Col minuto $Md con un $Resul" >> $Deb 
 Img=$Pre$(date +'%Y%m')$Suf".png"     # Componer el nombre del archivo con el registro gráfico 
 echo "$Yo Actualizar con el resultado del minuto actual la imagen $Img" >> $Deb
 echo "$Yo $(dirname $0)/BlqDiaHora.sh $Fil $Col $Md $Img $Resul $Suf" >> $Deb 
