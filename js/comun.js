@@ -52,4 +52,3 @@ function LeerDir(path){
 function CargarLista(objLista, strLista){
 
 }
-
