@@ -132,7 +132,8 @@ echo "$Yo /usr/local/bin/magick -script $Scr" >> $Deb
             /usr/local/bin/magick -script $Scr
 
 # Actualizar la lista de archivos en este directorio, para poder leerla desde JS sin necesidad de PHP
-cd $(dirname $Img)
-ls -m1 *.png > 
+cd $(dirname $Img)                                  # Cambiar al directorio de los logs para que ls solo liste nombrs
+echo $Img >> $(dirname $Img)/logs.txt               # Agregar el PNG recien creado a la Lista de PNG en este directorio
+#ls -m1 $(dirname $Img) > $(dirname $Img)/logs.txt   # Listar todos los PNG al archivo 
 
 echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
