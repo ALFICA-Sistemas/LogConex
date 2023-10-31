@@ -36,7 +36,6 @@ function LeerTexto(URL){
    }
 }
 
-
 function FechaMod(URL){
    var lastMod = null;
    fetch(URL).then(r => {
