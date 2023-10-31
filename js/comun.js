@@ -45,8 +45,10 @@ function FechaMod(URL){
    )
 }
 
-function LeerDir(path){
-
+function LeerDir(DirArch){
+   var fs = require('fs');
+   var ListaArchs = fs.readdirSync('DirArch');
+   return ListaArchs;
 }
 
 function CargarLista(objLista, strLista){
