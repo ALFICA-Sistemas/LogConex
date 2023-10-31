@@ -131,4 +131,8 @@ echo "-write $Img" >> $Scr  # Terminar el script escribiendo al archivo de image
 echo "$Yo /usr/local/bin/magick -script $Scr" >> $Deb
             /usr/local/bin/magick -script $Scr
 
+# Actualizar la lista de archivos en este directorio, para poder leerla desde JS sin necesidad de PHP
+cd $(dirname $Img)
+ls -m1 *.png > 
+
 echo "" >> $Deb                                                         # Separar del log de la siguiente ejecucion
