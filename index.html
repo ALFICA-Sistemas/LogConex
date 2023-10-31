@@ -2,7 +2,7 @@
    <head>
       <title>Registro de conexion</title>
       <!-- https://www.w3schools.com/html/html_layout.asp -->
-      <link rel="shortcut icon" href="css/favicon.png" type="image/x-icon">
+      <link rel="shortcut icon" href="local_css/favicon.png" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="css/comun.css">
       <link rel="stylesheet" type="text/css" href="local_css/local.css">
       <script src="js/comun.js"></script>
@@ -17,7 +17,7 @@
       <script>
          function Init(){
             console.log("Init "+new Date().getTime());
-            Logs=ListaArchs('local_logs/*.png');
+            Logs=LeerDir('local_logs/*.png');
             console.log(Losg);
 /*          document.getElementById("dest").innerHTML = LeerTexto("config/config.txt"); */
             CargaImg(document.getElementById('LogGraf'), "local_logs/202310_Elec-WifiExtr.png");
