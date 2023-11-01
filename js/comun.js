@@ -30,7 +30,8 @@ function LeerTexto(URL){
 //         if (type.indexOf("text") !== 1) {
 //            return Peticion.responseText;
 //            }
-         console.log("Leido: "+Leido);
+         console.log("Leido:");
+         console.log(Leido);
          return Leido;
       }
    }

@@ -9,7 +9,17 @@
    </head>
 
    <body onload="Init()">
-      <header>Registro de conectividad a <div id="dest">-</div></header>        <!-- Titulo -->
+      <header>Registro de conectividad a 
+         <div class="dest">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div> 
+<!--      <div id="dest">-</div> -->
+      </header>        <!-- Titulo -->
       <img id="LogGraf" alt="Log del mes">  <!-- Gráfico -->
       <footer id="subtit">-</footer>                                            <!-- Pie de gráfico -->
       <div id="fec">-</div>
@@ -17,7 +27,7 @@
       <script>
          function Init(){
             console.log(LeerTexto('local_logs/logs.txt'));
-/*          document.getElementById("dest").innerHTML = LeerTexto("config/config.txt"); */
+            document.getElementById("subtit").innerHTML = LeerTexto("local_logs/logs.txt"); 
             CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
             setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
             }
