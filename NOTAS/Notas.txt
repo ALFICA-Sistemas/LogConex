@@ -63,3 +63,12 @@ https://imagemagick.org/image/wand.ico
 # Si el log no existe, se crea con diez noreg: ----------
 # En los minutos múltiplos de 10 se invoca el dibujo del bloque de esa fecha esa hora con el contenido del archivo
 #  y se borra el log temporal para que sea recreado
+
+# Para retrasar la ejecución del script abcd.sh, N segundos después de invocado
+sleep N && abcd.sh  
+
+# Para generar el listado de logs gráficos para ser leído sin usar nada server-side
+cd /Discos/Local/www/LogConex/local_logs
+ls -t1 *.png > logs.txt                    # Listar solo PNGs, ordenados por mas reciente, 1 por linea
+ll ../bash/*.sh
+sudo chmod 777 ../bash/*.sh
