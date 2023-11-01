@@ -22,7 +22,7 @@ function LeerTexto(URL){
    Peticion.open('GET', URL, true);
    Peticion.send(null);
    Peticion.onreadystatechange = function () {
-   console.log("readystate: "+Peticion.readyState+" Status: "+Peticion.status);
+//   console.log("readystate: "+Peticion.readyState+" Status: "+Peticion.status);
       if (Peticion.readyState === 4 && Peticion.status === 200) {
          Leido=Peticion.responseText;
 //         var type = Peticion.getResponseHeader('Content-Type');

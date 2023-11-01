@@ -16,15 +16,13 @@
       
       <script>
          function Init(){
-            console.log("Init "+new Date().getTime());
-/*            Logs=LeerDir('local_logs/*.png');
-            console.log(Losg); */
+            console.log(LeerTexto('local_logs/logs.txt'));
 /*          document.getElementById("dest").innerHTML = LeerTexto("config/config.txt"); */
-            CargaImg(document.getElementById('LogGraf'), "local_logs/202310_Elec-WifiExtr.png");
+            CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
             setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
             }
          function RecargaImg(){
-            CargaImg(document.getElementById('LogGraf'), "local_logs/202310_Elec-WifiExtr.png");
+            CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
             }
       </script>
    </body>
