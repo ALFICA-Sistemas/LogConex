@@ -71,6 +71,6 @@ sleep N && abcd.sh
 cd /Discos/Local/www/LogConex/local_logs   # Cambiar al directorio a listar
 ls -t1 *.png > logs.txt                    # Listar solo PNGs, ordenados por mas reciente, 1 por linea
 
-
-ll ../bash/*.sh
-sudo chmod 777 ../bash/*.sh
+# Para reasignar la editabilidad y ejecutabilidad de los scripts (que a veces se pierde al editar desde Windows)
+ll /Discos/Local/www/LogConex//bash/*.sh             # Mirar los bits de escritura y de ejecucion
+sudo chmod 777 /Discos/Local/www/LogConex/bash/*.sh  # Activar el bit de escritura y el de ejecucion
