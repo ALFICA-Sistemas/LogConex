@@ -25,18 +25,18 @@
       <img id="LogGraf" alt="Log del mes">  <!-- Gráfico -->
       <footer id="subtit">-</footer>                                            <!-- Pie de gráfico -->
       <div id="fec">-</div>
-      
-      <script>
-         function Init(){
-            console.log(LeerTexto('local_logs/logs.txt'));
-            document.getElementById("subtit").innerHTML = LeerTexto("local_logs/logs.txt"); 
-            CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
-            setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
-            }
-         function RecargaImg(){
-            CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
-            }
-      </script>
    </body>
 
+   <script>
+      function Init(){
+         console.log(LeerTexto('local_logs/logs.txt'));
+//         document.getElementById("subtit").innerHTML = LeerTexto("local_logs/logs.txt"); 
+         CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
+         setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
+         }
+      function RecargaImg(){
+         CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
+         }
+   </script>
+   
 </html>
