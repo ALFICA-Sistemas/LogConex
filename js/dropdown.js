@@ -19,6 +19,6 @@ function LeerTexto(URL){
   }
 }
 
-function LlenarLista(Elementos){
-  
+function LlenarLista(objLista, Elementos){
+  objLista.innerHTML += '<option value="' Elementos '"></option>'
 }
