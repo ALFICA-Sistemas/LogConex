@@ -19,4 +19,6 @@ function LeerTexto(URL){
   }
 }
 
-function LlenarLista()
+function LlenarLista(Elementos){
+  
+}
