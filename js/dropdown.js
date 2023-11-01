@@ -20,5 +20,5 @@ function LeerTexto(URL){
 }
 
 function LlenarLista(objLista, Elementos){
-  objLista.innerHTML += '<option value="' Elementos '"></option>'
+  objLista.innerHTML += '<option value="' Elementos '"></option>';
 }
