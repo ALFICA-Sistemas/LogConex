@@ -68,7 +68,9 @@ https://imagemagick.org/image/wand.ico
 sleep N && abcd.sh  
 
 # Para generar el listado de logs gráficos para ser leído sin usar nada server-side
-cd /Discos/Local/www/LogConex/local_logs
+cd /Discos/Local/www/LogConex/local_logs   # Cambiar al directorio a listar
 ls -t1 *.png > logs.txt                    # Listar solo PNGs, ordenados por mas reciente, 1 por linea
+
+
 ll ../bash/*.sh
 sudo chmod 777 ../bash/*.sh
