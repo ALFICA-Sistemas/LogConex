@@ -8,5 +8,3 @@ Directorio con scripts que se ejecutan en cualquier servidor que monitorea y not
 ├── js                             	# Directorio con javascripts comunes a todos los sitios
 ├── local_css                      	# Directorio con css específicos de cada sitio (no sincronizado, via .stignore)
 └── local_logs                     	# Directorio con logs gráficos de cada sitio (no sincronizado, via .stignore)
-
-sleep N && abcd.sh  # Para retrasar la ejecución del script abcd.sh, N segundos después de invocado
