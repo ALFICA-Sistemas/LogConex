@@ -14,12 +14,20 @@
       <header> 
          <!-- https://blog.hubspot.com/website/html-dropdown -->
          <label for="hostDest_id">Registro de conectividad a </label>
-         <select name="hostDest" id="hostDest_id"> 
+         <input list="hostDest_lista" id="hostDest_id" name="hostDest" />
+<!--         <select name="hostDest" id="hostDest_id"> 
              <option value="rigatoni">Rigatoni</option> 
              <option value="dave">Dave</option> 
              <option value="pumpernickel">Pumpernickel</option> 
              <option value="reeses">Reeses</option> 
-         </select>
+         </select> -->
+         <datalist id="hostDest_id">
+            <option value="Chocolate"></option>
+            <option value="Coconut"></option>
+            <option value="Mint"></option>
+            <option value="Strawberry"></option>
+            <option value="Vanilla"></option>
+          </datalist>
          <!--      <div id="dest">-</div> -->
       </header>        <!-- Titulo -->
       <img id="LogGraf" alt="Log del mes">  <!-- Gráfico -->
