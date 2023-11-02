@@ -20,6 +20,7 @@ function LeerTexto(URL){
 }
 
 function LlenarLista(objLista, Elementos){
+  
   objLista.innerHTML += '<option value=Otro></option>';
   objLista.innerHTML += '<option value="Uno mas"></option>';
 }
