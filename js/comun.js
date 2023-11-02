@@ -28,9 +28,6 @@ function FechaMod(URL){
 function LeerDir(DirArch){
    var fs = require('fs');
    var ListaArchs = fs.readdirSync('DirArch');
-   return ListaArchs;
-}
-
-function CargarLista(objLista, strLista){
-
+   console.log()
+   return ListaArchs;   
 }
