@@ -25,9 +25,11 @@ function FechaMod(URL){
    )
 }
 
+/*
 function LeerDir(DirArch){
    var fs = require('fs');
    var ListaArchs = fs.readdirSync('DirArch');
-   console.log()
+   console.log(ListaArchs);
    return ListaArchs;   
 }
+*/
