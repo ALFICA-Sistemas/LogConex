@@ -30,10 +30,10 @@
 
    <script>
       function Init(){
+         document.getElementById("subtit").innerHTML = LeerTexto("local_logs/logs.txt");
          LlenarLista(document.getElementById('hostDest_id'),"local_logs/logs.txt");
          CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
          setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
-         LlenarLista(hostDest_lista, 'Otro elemento')
          }
       function RecargaImg(){
          CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
