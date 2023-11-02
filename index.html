@@ -30,7 +30,8 @@
 
    <script>
       function Init(){
-         console.log(LeerTexto('local_logs/logs.txt'));
+         DirLogs=LeerTexto('local_logs/logs.txt');
+         console.log(DirLogs);
 //         document.getElementById("subtit").innerHTML = LeerTexto("local_logs/logs.txt"); 
          CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
          setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
