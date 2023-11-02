@@ -3,7 +3,7 @@ function LeerTexto(URL){
   fetch(URL)
   .then((res) => res.text())
   .then((text) => {
-    console.log(text);
+//    console.log(text);
     return text;
     // do something with "text"
    })
