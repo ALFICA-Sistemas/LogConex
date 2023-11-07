@@ -2,7 +2,8 @@ function LeerTexto(URL){
   fetch(URL)
   .then((res) => res.text())
   .then((text) => {
-    return text;    
+    return text;
+    console.log
    })
   .catch((e) => console.error(e));
 }
