@@ -12,7 +12,7 @@ function LlenarLista(objLista, URL){
   Lista=LeerTexto(URL);
   
   var Items = Lista.split(',');    //   facilitar convertirlo a array
-  console.log(text);
+  console.log(Lista);
   console.log('');
   console.log(Items[0]);
 
