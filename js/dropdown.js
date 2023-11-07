@@ -1,5 +1,5 @@
 function LeerTexto(URL){
-  console.log("LeerTexto");
+  console.log("LeerTexto:");
   const d = new Date();
   console.log(d.getMilliseconds());
 
@@ -13,7 +13,7 @@ function LeerTexto(URL){
 }
 
 function LlenarLista(objLista, URL){  
-  console.log("LlenarLista");
+  console.log("LlenarLista:");
   const d = new Date();
   console.log(d.getMilliseconds());
 
@@ -22,9 +22,10 @@ function LlenarLista(objLista, URL){
   console.log(Lista);
 
   console.log("LlenarLista");
-  const d = new Date();
-  console.log(d.getMilliseconds());
-//  console.log('');
+//  const d = new Date();
+//  console.log(d.getMilliseconds()); 
+
+  //  console.log('');
 //  console.log(Items[0]);
 
 //  console.log(Lista);
