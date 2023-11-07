@@ -1,31 +1,19 @@
 function LeerTexto(URL){
-  console.log("LeerTexto 2");
-  const d = new Date();
-  console.log(d.getMilliseconds());
-
   fetch(URL)
   .then((res) => res.text())
   .then((text) => {
+    const Leido = text;
 //    console.log(text);
-    return text;
+    return Leido;
    })
   .catch((e) => console.error(e));
 }
 
 function LlenarLista(objLista, URL){  
-  console.log("LlenarLista 1");
-  const d = new Date();
-  console.log(d.getMilliseconds());
-
-  Lista=LeerTexto(URL);             //  Leer el contenido del archivo especificado
+  const Lista = LeerTexto(URL);     //  Leer el contenido del archivo especificado
 // var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
   console.log(Lista);
-
-  console.log("LlenarLista 3");
-//  const d = new Date();
-//  console.log(d.getMilliseconds()); 
-
-  //  console.log('');
+//  console.log('');
 //  console.log(Items[0]);
 
 //  console.log(Lista);
