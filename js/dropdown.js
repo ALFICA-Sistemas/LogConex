@@ -11,7 +11,8 @@ function LeerTexto(URL){
 
 function LlenarLista(objLista, URL){  
   Lista=LeerTexto(URL);
-  console.log(Lista);
+  return Lista;
+//  console.log(Lista);
 /*  objLista.innerHTML += '<option value=Otro></option>';
   objLista.innerHTML += '<option value="Uno mas"></option>'; */
 }
