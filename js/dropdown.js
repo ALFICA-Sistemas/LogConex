@@ -13,7 +13,7 @@ function LeerTexto(URL){
 }
 
 function LlenarLista(objLista, URL){  
-  console.log("LlenarLista:");
+  console.log("LlenarLista 1");
   const d = new Date();
   console.log(d.getMilliseconds());
 
@@ -21,7 +21,7 @@ function LlenarLista(objLista, URL){
 // var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
   console.log(Lista);
 
-  console.log("LlenarLista");
+  console.log("LlenarLista 2");
 //  const d = new Date();
 //  console.log(d.getMilliseconds()); 
 
