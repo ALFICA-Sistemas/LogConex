@@ -1,5 +1,5 @@
 function LeerTexto(URL){
-  console.log("LeerTexto:");
+  console.log("LeerTexto 2");
   const d = new Date();
   console.log(d.getMilliseconds());
 
@@ -21,7 +21,7 @@ function LlenarLista(objLista, URL){
 // var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
   console.log(Lista);
 
-  console.log("LlenarLista 2");
+  console.log("LlenarLista 3");
 //  const d = new Date();
 //  console.log(d.getMilliseconds()); 
 
