@@ -17,10 +17,8 @@
          <input list="hostDest_lista" id="hostDest_id" name="hostDest_id" />
          <datalist id="hostDest_lista">
             <option value="Chocolate"></option>
-            <option value="Coconut"></option>
-            <option value="Mint"></option>
-            <option value="Strawberry"></option>
-            <option value="Vanilla"></option>
+            <option value="Fresa"></option>
+            <option value="Vainilla"></option>
          </datalist>
       </header>        <!-- Titulo -->
       <img id="LogGraf" alt="Log del mes">  <!-- Gráfico -->
@@ -30,9 +28,8 @@
 
    <script>
       function Init(){
-         Lista=LeerTexto("local_logs/logs.txt");
-//         console.log(Lista);
-//         LlenarLista(document.getElementById('hostDest_id'),"local_logs/logs.txt");
+//         Lista=LeerTexto("local_logs/logs.txt");
+         LlenarLista(document.getElementById('hostDest_lista'),"local_logs/logs.txt");
          CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
          setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
          }
