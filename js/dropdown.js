@@ -2,16 +2,15 @@ function LeerTexto(URL){
   fetch(URL)
   .then((res) => res.text())
   .then((text) => {
-    text=text.replace(/\n/g, ',');  // Sustituir los fines de linea por comas, para
     return text;
    })
   .catch((e) => console.error(e));
 }
 
 function LlenarLista(objLista, URL){  
-  Lista=LeerTexto(URL);
   
-  var Items = Lista.split(',');    //   facilitar convertirlo a array
+  Lista=LeerTexto(URL);             //  Leer el contenido del archivo especificado
+  var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
   console.log(Lista);
   console.log('');
   console.log(Items[0]);
