@@ -1,16 +1,27 @@
-//function LeerTexto(URL){
-const LeerTexto = async (URL) => {
+function LeerTexto(URL){
+/*
+  const LeerTexto = async (URL) => {
   await fetch(URL)
   .then((resultado) => res.text())
   .then((text) => {
     Leido = text;
   })
   .catch((e) => console.error(e));
-  return Leido;
+  */
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      return this.responseText;      
+    }
+  };
+  xhttp.open("GET", URL);
+  xhttp.send(); 
+//  return Leido;
 }
 
 function LlenarLista(objLista, URL){
-  Lista = LeerTexto(URL);     //  Leer el contenido del archivo especificado
+  let Lista = LeerTexto(URL);     //  Leer el contenido del archivo especificado
 // var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
   console.log(Lista);
 //  console.log('');
