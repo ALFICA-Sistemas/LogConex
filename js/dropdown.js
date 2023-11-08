@@ -15,6 +15,7 @@ function LeerTexto(URL){
       return this.responseText;      
     }
   };
+
   xhttp.open("GET", URL);
   xhttp.send(); 
 //  return Leido;
