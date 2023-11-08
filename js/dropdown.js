@@ -1,12 +1,12 @@
-var Leido=[]; 
+var Leido; 
 function LeerTexto(URL) {
   var Solicitud = new XMLHttpRequest();
   Solicitud.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      Leido.concat(this.responseText);
+      Leido = this.responseText;
     }
   };
-  Solicitud.open("GET", URL);
+  Solicitud.open("GET", URL,false);
   Solicitud.send(); 
   return Leido;
 }
