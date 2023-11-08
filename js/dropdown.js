@@ -3,7 +3,7 @@ function LeerTexto(URL) {
   var Solicitud = new XMLHttpRequest();
   Solicitud.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      Leido.push(this.responseText);
+      Leido.concat(this.responseText);
     }
   };
   Solicitud.open("GET", URL);
