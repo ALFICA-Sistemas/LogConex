@@ -19,6 +19,8 @@ function LlenarLista(objLista, URL){
   Items.sort;
 //  Items.reverse;
   console.log(Items[0]);
-  objLista.innerHTML += '<option value=Otro></option>';
-  objLista.innerHTML += '<option value="Uno mas"></option>';
+
+  for (let i = 0; i < Items.length; i++) {
+    objLista.innerHTML += '<option value=' + Items[i] + "></option>";
+  } 
 }
