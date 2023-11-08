@@ -1,13 +1,12 @@
 function LeerTexto(URL){
-  var Leido='';
-  fetch(URL)
+  let Leido;
+  await fetch(URL)
   .then((res) => res.text())
   .then((text) => {
     Leido = text;
-    console.log(Leido);
+//    console.log(Leido);
   })
   .catch((e) => console.error(e));
-
   return Leido;  
 }
 
