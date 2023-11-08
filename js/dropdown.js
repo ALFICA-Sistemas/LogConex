@@ -1,13 +1,15 @@
-function LeerTexto(URL){
-  const xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+var Leido; 
+function LeerTexto(URL) {
+  var Solicitud = new XMLHttpRequest();
+  Solicitud.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      Leido.push(this.responseText);
       console.log(this.responseText);
-      return this.responseText;      
+//      return this.responseText;      
     }
   };
-  xhttp.open("GET", URL);
-  xhttp.send(); 
+  Solicitud.open("GET", URL);
+  Solicitud.send(); 
 //  return Leido;
 }
 
