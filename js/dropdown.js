@@ -1,13 +1,4 @@
 function LeerTexto(URL){
-/*
-  const LeerTexto = async (URL) => {
-  await fetch(URL)
-  .then((resultado) => res.text())
-  .then((text) => {
-    Leido = text;
-  })
-  .catch((e) => console.error(e));
-  */
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -15,7 +6,6 @@ function LeerTexto(URL){
       return this.responseText;      
     }
   };
-
   xhttp.open("GET", URL);
   xhttp.send(); 
 //  return Leido;
