@@ -14,11 +14,9 @@ function LeerTexto(URL) {
 function LlenarLista(objLista, URL){
   let Lista = LeerTexto(URL);       //  Leer el contenido del archivo especificado
   var Items = Lista.split('\n');    //  Separar a un array cada linea del archivo
-  Items.sort;
-  Items.r
-//  Items.reverse;
+  Items.sort();
+  Items.reverse();
   for (let i = 0; i < Items.length; i++) {
-    console.log(Items[i]);
-    objLista.innerHTML += '<option value=' + Items[i] + "></option>";
+     objLista.innerHTML += '<option value=' + Items[i] + "></option>";
   } 
 }
