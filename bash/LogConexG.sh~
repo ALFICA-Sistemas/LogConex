@@ -45,7 +45,7 @@ Deb="$DirTmp/$Suf"-Debug.log                                # Log de debug de la
 
 M=$(TZ=":America/Caracas" date +'%M')                       # Determinar el minuto actual
 Md=$(( ${M#0}%10 ))                                         # Calcular el minuto desde la decena
-if [ $Md -eq 0 ]; then mv $Deb $Deb.bak; fi                 # Si es el minuto que empieza la decena, eliminar el debug viejo
+if [ $Md -eq 0 ]; then rm $Deb; fi                          # Si es el minuto que empieza la decena, eliminar el debug viejo
 
 echo "$0 $1 $2 $3" >> $Deb                                  # Registrar el comando con el que se ejecutó
 echo "$Yo $Dest $Pre $Suf" >> $Deb                          # Registrar el comando interpretado
