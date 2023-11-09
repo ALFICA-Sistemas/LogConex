@@ -20,7 +20,7 @@
          <datalist id="ListaLogs"></datalist>
 -->         
       </header>                             <!-- Titulo del gráfico-->
-      <img id="LogGraf" alt="Log del mes" data-LogGrafArch="202311_Elec-SacosMalla">  <!-- Cuerpo del gráfico -->
+      <img id="LogGraf" alt="Log del mes" data-LogGrafArch="Imagen del log">  <!-- Cuerpo del gráfico -->
       <footer id="subtit">-</footer>                                            <!-- Pie de gráfico -->
       <footer id="fec">-</footer>
    </body>
@@ -30,7 +30,7 @@
          LlenarLista(document.getElementById('ListaLogs'),"local_logs/logs.txt");
          let LogGrafArch=LogGraf.getAttribute("data-LogGrafArch");
          console.log(LogGrafArch);
-         CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-SacosMalla.png");
+         CargaImg(document.getElementById('LogGraf'), "local_logs/202311_Elec-WiFi.png");
          setInterval(RecargaImg, 30000);      // Recarga periodica de la imagen
          }
       function RecargaImg(){
