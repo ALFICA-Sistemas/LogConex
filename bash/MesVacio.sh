@@ -135,6 +135,12 @@ echo "$Yo /usr/local/bin/magick -script $Scr" >> $Deb
 #cd $(dirname $Img)                                        # Cambiar al directorio de los logs para que ls solo liste nombrs
 #ls -m1 $(dirname $Img) *.png > $(dirname $Img)/logs.txt   # Regenerar la lista con todos los PNG al archivo 
 Img="${Img%%.*}"
-echo $(basename $Img) >> $(dirname $Img)/logs.txt          # Agregar el PNG recien creado a la Lista de PNG en este directorio
+
+
+# Agregar al principio de la lista dèarchivos el nombre del archivo de log grafico recien creado:
+sed -i '1s/^/$(basename $Img)\n/' $(dirname $Img)/logs.txt
+echo $(basename $Img) | cat $(dirname $Img)/logs.txt > $DirTmp"/Logs.txt"  && mv $DirTmp"/Logs.txt" $(dirname $Img)/logs.txt
+
+# echo $(basename $Img) >> $(dirname $Img)/logs.txt          # Agregar el PNG recien creado a la Lista de PNG en este directorio
 
 echo "" >> $Deb                                            # Separar del log de la siguiente ejecucion
