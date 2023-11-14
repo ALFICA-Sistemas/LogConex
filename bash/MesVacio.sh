@@ -1,4 +1,4 @@
-#!/bin/bash
+\#!/bin/bash
 
 # Incluir los parametros del grafico
 source $(dirname "$0")/ParamsLogConex.dat
@@ -131,12 +131,8 @@ echo "-write $Img" >> $Scr  # Terminar el script escribiendo al archivo de image
 echo "$Yo /usr/local/bin/magick -script $Scr" >> $Deb
             /usr/local/bin/magick -script $Scr
 
-# Actualizar la lista de archivos en este directorio, para poder leerla desde JS sin necesidad de PHP
-#cd $(dirname $Img)                                        # Cambiar al directorio de los logs para que ls solo liste nombrs
-#ls -m1 $(dirname $Img) *.png > $(dirname $Img)/logs.txt   # Regenerar la lista con todos los PNG al archivo 
+# Elimnar la extension del archivo recien creado para el log grafico:
 Img="${Img%%.*}"
-
-
 # Agregar al principio de la lista de archivos el nombre del archivo de log grafico recien creado:
 #  ( sed: directo en el archivo en disco: 1 sustitucion de /inicio-de-linea/ por /nombre-del-archivo-nuevo+linea-nueva/ )
 sed -i '1s/^/"$(basename $Img)"\n/' $(dirname $Img)/logs.txt
