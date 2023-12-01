@@ -1,3 +1,9 @@
+"$(basename $Img)"
+"$(basename $Img)"
+"$(basename $Img)"
+"$(basename $Img)"
+"$(basename $Img)"
+"$(basename $Img)"
 202311_Elec-DVR2
 202311_Elec-WifiExtr
 202311_Elec-SacosMalla
