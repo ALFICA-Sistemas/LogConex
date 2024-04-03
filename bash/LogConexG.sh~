@@ -59,7 +59,7 @@ then
   echo -n "$Yo Intentando ping a $Dest. Exit code: $Resp"  >> $Deb
 else
   # Si no es URL interno, es URL (susceptible de ser diferenciable en firewall):
-  curl -I --output /dev/null -s $Dest --connect-timeout 20 --max-time 30 > nul
+  curl --output /dev/null -s $Dest --connect-timeout 20 --max-time 30 > nul
   Resp=$?
   echo -n "$Yo Intentando curl a $Dest. Exit code: $Resp"  >> $Deb
 fi
